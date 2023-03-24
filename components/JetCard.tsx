@@ -16,7 +16,7 @@ const JetCard: React.FC<Props> = ({ jet }) => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+
     setIsOpen(false);
   };
 

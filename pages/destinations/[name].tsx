@@ -18,7 +18,7 @@ const DestinationDetails: React.FC = () => {
     }, [name]);
   
     const fetchDestinationDetails = async () => {
-      console.log(name);
+
       if (typeof name !== 'string') return;
       const res = await fetch(`/api/destination/${encodeURIComponent(name)}`);
       const data: Destination = await res.json();

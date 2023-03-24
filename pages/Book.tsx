@@ -4,7 +4,7 @@ import React from "react";
 
 const BookingContact: React.FC = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
     <Header />
     <div className="bg-gray-100 py-16">
       <div className="container mx-auto px-4">
@@ -80,7 +80,7 @@ const BookingContact: React.FC = () => {
       </div>
     </div>
     <Footer />
-    </>
+    </div>
   );
 };
 
