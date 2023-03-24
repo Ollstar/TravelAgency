@@ -15,7 +15,7 @@ const Search: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">
+        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">Search Destinations</h2>
         </div>
         <section className="container mx-auto my-8">
@@ -25,11 +25,11 @@ const Search: React.FC = () => {
               placeholder="Search"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 rounded border border-blue focus:ring-2 focus:ring-blue"
+              className="w-full px-4 py-2 rounded border border-blue-500 focus:ring-2 focus:ring-blue-500"
             />
             <button
               type="submit"
-              className="bg-blue text-white px-4 py-2 mt-4 rounded hover:bg-indigo-600 transition duration-200 w-full"
+              className="bg-blue-500 text-white px-4 py-2 mt-4 rounded hover:bg-indigo-500 transition duration-200 w-full"
             >
               Search
             </button>
