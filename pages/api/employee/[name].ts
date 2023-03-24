@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { employees } from "@/data/employees";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function handler(req: NextApiRequest, res: NextApiResponse) {
   const {
     query: { name },
   } = req;
