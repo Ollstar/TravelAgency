@@ -26,7 +26,7 @@ const About: React.FC = () => {
             About Our Travel Agency
           </h2>
           <p>
-            (Insert your travel agency's story here.)
+            Insert your travel agency's story here.
           </p>
         </section>
         <section className="container mx-auto my-8">
