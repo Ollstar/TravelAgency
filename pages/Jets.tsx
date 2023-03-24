@@ -21,7 +21,7 @@ const Jets: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">
+        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">
             Explore the World in Style with Our Private Jets
           </h2>
