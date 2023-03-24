@@ -34,6 +34,14 @@ const Header = () => {
                 Search
               </Link>
             </li>
+            <li>
+              <Link
+                href="/Book"
+                className="hover:text-indigo-300 transition duration-200"
+              >
+                Book
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>

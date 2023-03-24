@@ -53,43 +53,54 @@ const Index: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
-          <h2 className="text-4xl font-bold text-white text-center">
-            Discover Your Next Adventure
-          </h2>
-        </div>
-        <section className="container mx-auto my-8">
-          <h2 className="text-2xl font-bold text-center mb-8">
+        <section className="bg-gradient-to-r from-blue-500 to-indigo-600 relative h-screen">
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <h1 className="text-6xl font-bold text-white text-center mb-4">
+              Discover Your Next Adventure
+            </h1>
+            <p className="text-2xl text-white text-center">
+              Explore the world with our curated collection of stunning
+              destinations.
+            </p>
+          </div>
+        </section>
+        <section className="container mx-auto my-16 px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
             Featured Destinations
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredDestinations.map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} />
-            ))}
-          </div>
-        </section>
-        {/* Testimonials section */}
-        <section className="container mx-auto my-8">
-          <h2 className="text-2xl font-bold text-center mb-8">Testimonials</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial) => (
-              <TestimonialsCard
-                key={testimonial.id}
-                testimonial={testimonial}
+              <DestinationCard
+                key={destination.id}
+                destination={destination}
               />
             ))}
           </div>
         </section>
-        {/* Jet Section */}
-        <section className="container mx-auto my-8">
-          <h2 className="text-2xl font-bold text-center mb-8">Jets</h2>
-          <JetList jets={jets} />
-
+        {/* Testimonials section */}
+        <section className="bg-gray-100 py-16">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Testimonials
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial) => (
+                <TestimonialsCard
+                  key={testimonial.id}
+                  testimonial={testimonial}
+                />
+              ))}
+            </div>
+          </div>
         </section>
-
+        {/* Jet Section */}
+        <section className="container mx-auto my-16 px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Jets</h2>
+          <JetList jets={jets} />
+        </section>
         {/* Blog Posts section */}
-        <section className="container mx-auto my-8">
-          <h2 className="text-2xl font-bold text-center mb-8">
+        <section className="container mx-auto my-16 px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
             Featured Blog Posts
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
