@@ -6,7 +6,7 @@ export const destinations: Destination[] = [
     id: '1',
     name: 'Paris, France',
     description: 'Experience the city of love, with its iconic Eiffel Tower and world-class cuisine.',
-    image_url: 'https://example.com/paris.jpg',
+    image_url: '/paris.jpg',
     cruise: false,
     mountain: false,
     shopping: true,
