@@ -7,9 +7,9 @@ import BlogPostCard from "../components/BlogPostCard";
 import { Destination } from "@/types/Destination";
 import { Testimonial } from "@/types/Testimonial";
 import { BlogPost } from "@/types/BlogPost";
-import JetCard from "@/components/JetCard";
 import { Jet } from "@/types/Jet";
 import JetList from "@/components/JetList";
+import { motion } from "framer-motion";
 
 const Index: React.FC = () => {
   const [featuredDestinations, setFeaturedDestinations] = useState<
@@ -55,13 +55,23 @@ const Index: React.FC = () => {
       <main className="flex-grow">
         <section className="bg-gradient-to-r from-blue-500 to-indigo-600 relative h-screen">
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <h1 className="text-6xl font-bold text-white text-center mb-4">
+            <motion.h1
+              className="text-6xl font-bold text-white text-center mb-4"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
               Discover Your Next Adventure
-            </h1>
-            <p className="text-2xl text-white text-center">
+            </motion.h1>
+            <motion.p
+              className="text-2xl text-white text-center"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
               Explore the world with our curated collection of stunning
               destinations.
-            </p>
+            </motion.p>
           </div>
         </section>
         <section className="container mx-auto my-16 px-4">
@@ -70,10 +80,7 @@ const Index: React.FC = () => {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredDestinations.map((destination) => (
-              <DestinationCard
-                key={destination.id}
-                destination={destination}
-              />
+              <DestinationCard key={destination.id} destination={destination} />
             ))}
           </div>
         </section>
