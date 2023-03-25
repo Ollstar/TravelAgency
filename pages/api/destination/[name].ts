@@ -1,6 +1,7 @@
 // api/destinations/[name].ts
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Destination, destinations } from "@/data/destinations";
+import { destinations } from "@/data/destinations";
+import { Destination } from "@/types/Destination";
 
 const handler = (
   req: NextApiRequest,
