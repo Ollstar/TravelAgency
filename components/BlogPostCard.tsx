@@ -1,6 +1,7 @@
 // components/BlogPostCard.tsx
 import React from 'react';
 import { BlogPost } from '@/types/BlogPost';
+import { motion } from 'framer-motion';
 
 interface Props {
   blogPost: BlogPost;
@@ -8,6 +9,11 @@ interface Props {
 
 const BlogPostCard: React.FC<Props> = ({ blogPost }) => {
   return (
+    <motion.div
+    whileHover={{ scale: 1.05 }}
+    transition={{ duration: 0.3 }}
+    className="overflow-hidden rounded-lg shadow-md"
+  >
     <div className="border rounded-lg p-4">
       <img
         src={blogPost.imageUrl}
@@ -21,6 +27,7 @@ const BlogPostCard: React.FC<Props> = ({ blogPost }) => {
         <a href={`/blog/${blogPost.title}`}>Read More</a>
       </button>
     </div>
+  </motion.div>
   );
 };
 
