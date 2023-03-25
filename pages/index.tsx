@@ -65,7 +65,18 @@ const Index: React.FC = () => {
       <Header />
       <main className="flex-grow">
         <Hero />
-
+        <section className="container my-16 ">
+          <div className=" inset-0">
+            <video
+              src={"/sky.mp4"}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </div>
+          
+        </section>
         {/* Replace the static background with the Carousel component */}
         {/* <Carousel carouselItems={carouselItems} /> */}
         <section className="container mx-auto my-16 px-4">

@@ -28,13 +28,13 @@ const DestinationDetails: React.FC = () => {
     return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow p-4">
+      <main className="flex-grow">
         {destination && (
           <>
             <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
               <h2 className="text-4xl font-bold text-white text-center">{destination.name}</h2>
             </div>
-            <section className="container mx-auto my-8">
+            <section className="container mx-auto my-8 p-4">
               <div className="flex flex-col lg:flex-row gap-8">
                 <div className="lg:w-1/2">
                   <img src={destination.image_url} alt={destination.name} className="w-full h-64 lg:h-auto object-cover rounded" />
