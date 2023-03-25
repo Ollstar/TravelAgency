@@ -10,6 +10,8 @@ import { BlogPost } from "@/types/BlogPost";
 import { Jet } from "@/types/Jet";
 import JetList from "@/components/JetList";
 import { motion } from "framer-motion";
+import Carousel from "@/components/Carousel";
+import { CarouselItem } from "@/types/CarouselItem";
 
 const Index: React.FC = () => {
   const [featuredDestinations, setFeaturedDestinations] = useState<
@@ -48,32 +50,19 @@ const Index: React.FC = () => {
     const data: Jet[] = await res.json();
     setJets(data);
   };
-
+  const carouselItems: CarouselItem[] = featuredDestinations.map((destination) => ({
+    id: destination.id,
+    image: destination.image_url,
+    alt: destination.name,
+    title: destination.name,
+    description: destination.description,
+  }));
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <section className="bg-gradient-to-r from-blue-500 to-indigo-600 relative h-screen">
-          <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <motion.h1
-              className="text-6xl font-bold text-white text-center mb-4"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              Discover Your Next Adventure
-            </motion.h1>
-            <motion.p
-              className="text-2xl text-white text-center"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              Explore the world with our curated collection of stunning
-              destinations.
-            </motion.p>
-          </div>
-        </section>
+        {/* Replace the static background with the Carousel component */}
+        {/* <Carousel carouselItems={carouselItems} /> */}
         <section className="container mx-auto my-16 px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
             Featured Destinations

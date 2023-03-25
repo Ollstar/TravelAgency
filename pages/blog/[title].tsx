@@ -26,11 +26,11 @@ const BlogDetail: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow p-4">
+      <main className="flex-grow">
         <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">{blogPost.title}</h2>
         </div>
-        <section className="container mx-auto my-8">
+        <section className="container mx-auto my-8 p-4">
           <div className="flex flex-col lg:flex-row gap-8">
             <div className="lg:w-1/2">
               <img src={blogPost.imageUrl} alt={blogPost.title} className="w-full h-64 lg:h-auto object-cover rounded" />
@@ -42,7 +42,7 @@ const BlogDetail: React.FC = () => {
             </div>
           </div>
         </section>
-        <section className="container mx-auto my-8">
+        <section className="container mx-auto my-8 p-4">
           <h2 className="text-2xl font-bold mb-4">Related Posts</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {blogPosts

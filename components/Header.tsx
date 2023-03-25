@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import Link from "next/link";
 import DropdownMenu from "./DropdownMenu";
+import Image from "next/image";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4">
-      <div className="container mx-auto flex justify-between">
+      <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link href="/" className="text-2xl font-bold leading-none">
             Travel Agency
@@ -18,7 +19,11 @@ const Header = () => {
             href={`tel:${phoneNumber}`}
             className="ml-4 text-xl  leading-none hover:text-indigo-300 transition duration-200"
           >
-            {phoneNumber}
+            <div className="flex flex-row">
+              <i className="fas fa-phone-alt mr-1" />
+
+              {phoneNumber}
+            </div>
           </Link>
         </div>
         <button

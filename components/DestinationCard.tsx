@@ -1,6 +1,14 @@
 import { Destination } from "@/types/Destination";
 import { motion } from "framer-motion";
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faShip,
+  faMountain,
+  faShoppingBag,
+  faMonument,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   destination: Destination;
@@ -21,6 +29,12 @@ const DestinationCard: React.FC<Props> = ({ destination }) => {
         />
         <h3 className="text-xl font-bold mt-4">{destination.name}</h3>
         <p className="mt-2">{destination.description}</p>
+        <div className="flex mt-4 space-x-4">
+          {destination.cruise && <FontAwesomeIcon icon={faShip} />}
+          {destination.mountain && <FontAwesomeIcon icon={faMountain} />}
+          {destination.shopping && <FontAwesomeIcon icon={faShoppingBag} />}
+          {destination.ancientRuins && <FontAwesomeIcon icon={faMonument} />}
+        </div>
         <button className="bg-blue-500 text-white px-4 py-2 mt-4 rounded hover:bg-indigo-500 transition duration-200">
           <a href={`/destinations/${destination.name}`}>Learn More</a>
         </button>

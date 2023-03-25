@@ -1,43 +1,86 @@
 // data/destinations.ts
+import { Destination } from "@/types/Destination";
 
-export interface Destination {
-    id: string;
-    name: string;
-    description: string;
-    image_url: string;
-  }
-  
-  export const destinations: Destination[] = [
-    {
-      id: '1',
-      name: 'Paris, France',
-      description: 'Experience the city of love, with its iconic Eiffel Tower and world-class cuisine.',
-      image_url: 'https://example.com/paris.jpg',
-    },
-    {
-      id: '2',
-      name: 'New York City, USA',
-      description: 'Explore the Big Apple, known for its vibrant culture, skyscrapers, and bustling streets.',
-      image_url: 'https://example.com/new-york.jpg',
-    },
-    {
-      id: '3',
-      name: 'Sydney, Australia',
-      description: 'Discover Sydney, with its stunning harbor, iconic Opera House, and beautiful beaches.',
-      image_url: 'https://example.com/sydney.jpg',
-    },
-    {
-      id: '4',
-      name: 'Tokyo, Japan',
-      description: 'Experience the unique blend of tradition and modernity in Tokyo, the bustling capital of Japan.',
-      image_url: 'https://example.com/tokyo.jpg',
-    },
-    {
-      id: '5',
-      name: 'Rio de Janeiro, Brazil',
-      description: 'Visit Rio de Janeiro, known for its famous Carnival, Copacabana beach, and Christ the Redeemer statue.',
-      image_url: 'https://example.com/rio.jpg',
-    },
-    // Add more destinations as desired
-  ];
-  
+export const destinations: Destination[] = [
+  {
+    id: '1',
+    name: 'Paris, France',
+    description: 'Experience the city of love, with its iconic Eiffel Tower and world-class cuisine.',
+    image_url: 'https://example.com/paris.jpg',
+    cruise: false,
+    mountain: false,
+    shopping: true,
+    ancientRuins: false,
+  },
+  {
+    id: '2',
+    name: 'New York City, USA',
+    description: 'Explore the Big Apple, known for its vibrant culture, skyscrapers, and bustling streets.',
+    image_url: 'https://example.com/new-york.jpg',
+    cruise: false,
+    mountain: false,
+    shopping: true,
+    ancientRuins: false,
+  },
+  {
+    id: '3',
+    name: 'Sydney, Australia',
+    description: 'Discover Sydney, with its stunning harbor, iconic Opera House, and beautiful beaches.',
+    image_url: 'https://example.com/sydney.jpg',
+    cruise: true,
+    mountain: false,
+    shopping: true,
+    ancientRuins: false,
+  },
+  {
+    id: '4',
+    name: 'Tokyo, Japan',
+    description: 'Experience the unique blend of tradition and modernity in Tokyo, the bustling capital of Japan.',
+    image_url: 'https://example.com/tokyo.jpg',
+    cruise: false,
+    mountain: true,
+    shopping: true,
+    ancientRuins: false,
+  },
+  {
+    id: '5',
+    name: 'Rio de Janeiro, Brazil',
+    description: 'Visit Rio de Janeiro, known for its famous Carnival, Copacabana beach, and Christ the Redeemer statue.',
+    image_url: 'https://example.com/rio.jpg',
+    cruise: true,
+    mountain: true,
+    shopping: true,
+    ancientRuins: false,
+  },
+  {
+    id: '6',
+    name: 'Cairo, Egypt',
+    description: 'Explore Cairo, the gateway to the ancient pyramids, the Sphinx, and the Egyptian Museum.',
+    image_url: 'https://example.com/cairo.jpg',
+    cruise: true,
+    mountain: false,
+    shopping: true,
+    ancientRuins: true,
+  },
+  {
+    id: '7',
+    name: 'Rome, Italy',
+    description: 'Discover Rome, the Eternal City, with its ancient ruins, historic landmarks, and world-class cuisine.',
+    image_url: 'https://example.com/rome.jpg',
+    cruise: false,
+    mountain: false,
+    shopping: true,
+    ancientRuins: true,
+  },
+  {
+    id: '8',
+    name: 'Cape Town, South Africa',
+    description: 'Experience the beauty of Cape Town, with its stunning landscapes, vibrant culture, and rich history.',
+    image_url: 'https://example.com/cape-town.jpg',
+    cruise: true,
+    mountain: true,
+    shopping: true,
+    ancientRuins: false,
+  },
+  // Add more destinations as desired
+];

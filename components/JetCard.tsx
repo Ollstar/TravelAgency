@@ -3,6 +3,11 @@ import { Jet } from "@/types/Jet";
 import { Dialog, Transition } from "@headlessui/react";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUserFriends,
+  faRulerHorizontal,
+} from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   jet: Jet;
@@ -26,26 +31,28 @@ const JetCard: React.FC<Props> = ({ jet }) => {
       transition={{ duration: 0.3 }}
       className="overflow-hidden rounded-lg shadow-md"
     >
-      <div className="border rounded-lg p-4">
-        {/* Existing JetCard code */}
+      <div className="border rounded-lg p-4 flex flex-col h-full">
         <img
           src={jet.imageUrl}
           alt={jet.name}
           className="w-full h-48 object-cover rounded"
         />
         <h3 className="text-xl font-bold mt-4">{jet.name}</h3>
-        <p className="mt-2">Capacity: {jet.capacity}</p>
-        <p className="mt-2">Range: {jet.range} miles</p>
-        <p className="mt-2">{jet.description}</p>
-        <button className="bg-blue-500 text-white px-4 py-2 mt-4 mr-2 rounded hover:bg-indigo-500 transition duration-200">
-          <a href={`/jet/${jet.name}`}>Learn More</a>
-        </button>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="bg-blue-500 text-white px-4 py-2 mt-4 rounded hover:bg-indigo-500 transition duration-200"
-        >
-          Book Now
-        </button>
+        <div className="flex mt-2 space-x-4">{/* ...rest of the code */}</div>
+        <div className="flex-grow overflow-y-auto mt-2">
+          <p>{jet.description}</p>
+        </div>
+        <div className="mt-4 flex">
+          <button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded hover:bg-indigo-500 transition duration-200 flex-grow">
+            <a href={`/jet/${jet.name}`}>Learn More</a>
+          </button>
+          <button
+            onClick={() => setIsOpen(true)}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-indigo-500 transition duration-200 flex-grow"
+          >
+            Book Now
+          </button>
+        </div>
 
         <Transition appear show={isOpen} as={React.Fragment}>
           <Dialog

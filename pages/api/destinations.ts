@@ -1,5 +1,6 @@
 // api/destinations.ts
-import { Destination, destinations } from '@/data/destinations';
+import { destinations } from '@/data/destinations';
+import { Destination } from '@/types/Destination';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 
