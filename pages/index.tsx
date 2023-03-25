@@ -61,6 +61,17 @@ const Index: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
+      <section className="bg-gradient-to-r from-blue-500 to-indigo-600 relative h-screen">
+          <div className="absolute inset-0 flex flex-col items-center justify-center">
+            <h1 className="text-6xl font-bold text-white text-center mb-4">
+              Discover Your Next Adventure
+            </h1>
+            <p className="text-2xl text-white text-center">
+              Explore the world with our curated collection of stunning
+              destinations.
+            </p>
+          </div>
+        </section>
         {/* Replace the static background with the Carousel component */}
         {/* <Carousel carouselItems={carouselItems} /> */}
         <section className="container mx-auto my-16 px-4">
