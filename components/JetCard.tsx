@@ -31,15 +31,15 @@ const JetCard: React.FC<Props> = ({ jet }) => {
     <motion.div
       whileHover={{ scale: 1.05 }}
       transition={{ duration: 0.3 }}
-      className="overflow-hidden rounded-lg shadow-md bg-white"
+      className="overflow-hidden h-full rounded-lg shadow-md bg-white"
     >
-      <div className="border rounded-lg flex flex-col h-full">
+      <div className="border rounded-lg flex flex-col min-h-full">
         <img
           src={jet.imageUrl}
           alt={jet.name}
           className="w-full h-48 object-cover"
         />
-        <div className="min-h-0 justify-between flex-grow flex flex-col p-4">
+        <div className="min-h-full justify-between flex-grow flex flex-col p-4">
           <div>
             <h3 className="text-xl font-bold mb-4">{jet.name}</h3>
             <div className="flex space-x-4 mb-4">
