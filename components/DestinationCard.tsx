@@ -8,6 +8,7 @@ import {
   faShoppingBag,
   faMonument,
 } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 interface Props {
   destination: Destination;
@@ -36,17 +37,17 @@ const DestinationCard: React.FC<Props> = ({ destination }) => {
           </div>
         </div>
         <div className="border-t mt-4 flex p-4">
-          <a
+          <Link
             className="bg-blue-500 text-white px-4 py-2 mr-2 text-center rounded hover:bg-indigo-500 transition duration-200 flex-grow"
             href={`/destinations/${destination.name}`}
           >
             Learn More
-          </a>
-          <a className="bg-blue-500 text-white px-4 py-2 text-center rounded hover:bg-indigo-500 transition duration-200 flex-grow"
+          </Link>
+          <Link className="bg-blue-500 text-white px-4 py-2 text-center rounded hover:bg-indigo-500 transition duration-200 flex-grow"
           href='/Book'
           >
             Book Now
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>

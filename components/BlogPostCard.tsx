@@ -1,6 +1,7 @@
 import React from 'react';
 import { BlogPost } from '@/types/BlogPost';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 interface Props {
   blogPost: BlogPost;
@@ -31,12 +32,12 @@ const BlogPostCard: React.FC<Props> = ({ blogPost }) => {
           <p className="text-sm flex-grow">
             By {blogPost.author} on {blogPost.date}
           </p>
-          <a
+          <Link
             href={`/blog/${blogPost.title}`}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-indigo-500 transition duration-200"
           >
             Read More
-          </a>
+          </Link>
         </div>
       </div>
     </motion.div>
