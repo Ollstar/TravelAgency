@@ -14,8 +14,8 @@ const DropdownMenu = ({ menuOpen, menuRef }: Props) => {
       const rect = menuRef.current.getBoundingClientRect();
       setPositionStyles({
         top: `${rect.bottom}px`,
-        left: `${rect.left}px`,
-        transform: "translateX(-100%)",
+        right: "10px",
+
       });
     }
   }, [menuRef]);

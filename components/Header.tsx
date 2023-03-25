@@ -17,7 +17,9 @@ const Header = () => {
           className="block lg:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <i className={`fas fa-${menuOpen ? "times" : "bars"}`} />
+          {/* <i className={`fas fa-${menuOpen ? "times" : "bars"}`} /> */}
+          <i className={`fas fa-bars`} />
+
         </button>
         <DropdownMenu menuOpen={menuOpen} menuRef={menuRef} />
         <nav className="hidden lg:block">
