@@ -20,7 +20,7 @@ const Jets: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow p-4">
         <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">
             Explore the World in Style with Our Private Jets

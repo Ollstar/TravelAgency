@@ -28,7 +28,7 @@ const DestinationDetails: React.FC = () => {
     return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow p-4">
         {destination && (
           <>
             <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">

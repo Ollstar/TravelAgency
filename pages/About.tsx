@@ -20,7 +20,7 @@ const About: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow p-4">
         <section className="container mx-auto my-8">
           <h2 className="text-2xl font-bold text-center mb-8">
             About Our Travel Agency
