@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import DestinationCard from "../components/DestinationCard";
@@ -9,7 +9,12 @@ import { Testimonial } from "@/types/Testimonial";
 import { BlogPost } from "@/types/BlogPost";
 import { Jet } from "@/types/Jet";
 import JetList from "@/components/JetList";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useAnimation,
+  useTransform,
+  useMotionValue,
+} from "framer-motion";
 import Carousel from "@/components/Carousel";
 import { CarouselItem } from "@/types/CarouselItem";
 import Hero from "@/components/Hero";
@@ -21,12 +26,29 @@ const Index: React.FC = () => {
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [featuredBlogPosts, setFeaturedBlogPosts] = useState<BlogPost[]>([]);
   const [jets, setJets] = useState<Jet[]>([]);
+  const jetsSectionRef = useRef(null);
+  const observeJetsSection = () => {
+    const observer = new IntersectionObserver(
+      async (entries) => {
+        if (entries[0].isIntersecting) {
+          await animateJets();
+          observer.disconnect(); // Stop observing once the animation is triggered
+        }
+      },
+      { threshold: 0.1 } // Trigger the callback when at least 10% of the section is visible
+    );
+
+    if (jetsSectionRef.current) {
+      observer.observe(jetsSectionRef.current);
+    }
+  };
 
   useEffect(() => {
     fetchFeaturedDestinations();
     fetchTestimonials();
     fetchFeaturedBlogPosts();
     fetchJets();
+    observeJetsSection();
   }, []);
 
   const fetchFeaturedDestinations = async () => {
@@ -50,7 +72,9 @@ const Index: React.FC = () => {
     const res = await fetch("/api/jets");
     const data: Jet[] = await res.json();
     setJets(data);
+    animateJets();
   };
+
   const carouselItems: CarouselItem[] = featuredDestinations.map(
     (destination) => ({
       id: destination.id,
@@ -60,35 +84,61 @@ const Index: React.FC = () => {
       description: destination.description,
     })
   );
+  const useParallax = (minY: number, maxY: number, duration: number) => {
+    const scrollY = useMotionValue(0);
+    const scrollYRange = useTransform(scrollY, [0, duration], [minY, maxY]);
+
+    useEffect(() => {
+      const updateScrollY = () => scrollY.set(window.scrollY);
+      window.addEventListener("scroll", updateScrollY);
+      return () => window.removeEventListener("scroll", updateScrollY);
+    }, [scrollY]);
+
+    return scrollYRange;
+  };
+
+  const heroParallax = useParallax(0, -200, 1000);
+  const featuredDestinationsParallax = useParallax(-90, 50, 1000);
+  const jetsAnimation = useAnimation();
+  const animateJets = async () => {
+    await jetsAnimation.start({
+      x: "-100%",
+      opacity: 0,
+      transition: { duration: 0 },
+    });
+
+    await jetsAnimation.start({
+      x: "0%",
+      opacity: 1,
+      transition: { duration: 0.5 },
+    });
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
-        <Hero />
-        <section className="container my-16 ">
-          <div className=" inset-0">
-            <video
-              src={"/sky.mp4"}
-              autoPlay
-              loop
-              muted
-              playsInline
-            />
-          </div>
-          
-        </section>
+        <motion.div style={{ y: heroParallax }}>
+          <Hero />
+        </motion.div>
+        <motion.div style={{ y: featuredDestinationsParallax }}>
+          <section className="container mx-auto my-16 px-4 relative z-10">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Featured Destinations
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredDestinations.map((destination) => (
+                <DestinationCard
+                  key={destination.id}
+                  destination={destination}
+                />
+              ))}
+            </div>
+          </section>
+        </motion.div>
         {/* Replace the static background with the Carousel component */}
         {/* <Carousel carouselItems={carouselItems} /> */}
-        <section className="container mx-auto my-16 px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Featured Destinations
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredDestinations.map((destination) => (
-              <DestinationCard key={destination.id} destination={destination} />
-            ))}
-          </div>
-        </section>
+
         {/* Testimonials section */}
         <section className="bg-gray-100 py-16">
           <div className="container mx-auto px-4">
@@ -106,10 +156,16 @@ const Index: React.FC = () => {
           </div>
         </section>
         {/* Jet Section */}
-        <section className="container mx-auto my-16 px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Jets</h2>
+        <h2 className="text-3xl font-bold text-center mt-2 mb-12">Jets</h2>
+
+        <motion.section
+          ref={jetsSectionRef}
+          className="container mx-auto px-4 relative z-10"
+          animate={jetsAnimation}
+        >
           <JetList jets={jets} />
-        </section>
+        </motion.section>
+
         {/* Blog Posts section */}
         <section className="container mx-auto my-16 px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
