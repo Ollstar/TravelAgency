@@ -31,21 +31,25 @@ const JetCard: React.FC<Props> = ({ jet }) => {
       transition={{ duration: 0.3 }}
       className="overflow-hidden rounded-lg shadow-md"
     >
-      <div className="border rounded-lg p-4 flex flex-col h-full">
+      <div className="border rounded-lg flex flex-col h-full">
         <img
           src={jet.imageUrl}
           alt={jet.name}
-          className="w-full h-48 object-cover rounded"
+          className="w-full h-48 object-cover"
         />
-        <h3 className="text-xl font-bold mt-4">{jet.name}</h3>
-        <div className="flex mt-2 space-x-4">{/* ...rest of the code */}</div>
-        <div className="flex-grow overflow-y-auto mt-2">
-          <p>{jet.description}</p>
+        <div className="min-h-0 justify-between flex-grow flex flex-col">
+          <div>
+            <h3 className="text-xl font-bold mt-4 ml-2">{jet.name}</h3>
+            <div className="flex mt-2 space-x-4"></div>
+          </div>
+          <div className="flex-grow overflow-y-auto mt-2 p-2">
+            <p>{jet.description}</p>
+          </div>
         </div>
-        <div className="mt-4 flex">
-          <button className="bg-blue-500 text-white px-4 py-2 mr-2 rounded hover:bg-indigo-500 transition duration-200 flex-grow">
-            <a href={`/jet/${jet.name}`}>Learn More</a>
-          </button>
+        <div className="mt-4 flex p-2">
+          <a className="bg-blue-500 text-white px-4 py-2 mr-2 rounded hover:bg-indigo-500 transition duration-200 flex-grow" href={`/jet/${jet.name}`}>
+            Learn More
+          </a>
           <button
             onClick={() => setIsOpen(true)}
             className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-indigo-500 transition duration-200 flex-grow"
