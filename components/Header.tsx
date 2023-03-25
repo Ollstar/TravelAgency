@@ -5,21 +5,28 @@ import DropdownMenu from "./DropdownMenu";
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const phoneNumber = "123-456-7890"; // Replace with your desired phone number
 
   return (
     <header className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold">
-          Travel Agency
-        </Link>
+      <div className="container mx-auto flex justify-between">
+        <div className="flex items-center">
+          <Link href="/" className="text-2xl font-bold leading-none">
+            Travel Agency
+          </Link>
+          <Link
+            href={`tel:${phoneNumber}`}
+            className="ml-4 text-xl  leading-none hover:text-indigo-300 transition duration-200"
+          >
+            {phoneNumber}
+          </Link>
+        </div>
         <button
           ref={menuRef}
           className="block lg:hidden text-white focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {/* <i className={`fas fa-${menuOpen ? "times" : "bars"}`} /> */}
           <i className={`fas fa-bars`} />
-
         </button>
         <DropdownMenu menuOpen={menuOpen} menuRef={menuRef} />
         <nav className="hidden lg:block">

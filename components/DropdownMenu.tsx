@@ -28,7 +28,7 @@ const DropdownMenu = ({ menuOpen, menuRef }: Props) => {
       } z-10 absolute bg-white dark:bg-gray-700 rounded-lg shadow w-60 overflow-auto`}
       style={positionStyles}
     >
-      <ul className="h-48 py-2 overflow-y-auto text-gray-700 dark:text-gray-200">
+      <ul className=" text-gray-700 dark:text-gray-200">
         <li>
           <Link
             href="/Jets"

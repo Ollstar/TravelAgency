@@ -31,7 +31,7 @@ const DestinationDetails: React.FC = () => {
       <main className="flex-grow p-4">
         {destination && (
           <>
-            <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">
+            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
               <h2 className="text-4xl font-bold text-white text-center">{destination.name}</h2>
             </div>
             <section className="container mx-auto my-8">

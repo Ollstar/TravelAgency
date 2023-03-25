@@ -15,10 +15,11 @@ const Search: React.FC = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow p-4">
-      <h2 className="text-2xl font-bold text-center mb-8">
+
+        <section className="container mx-auto my-8">
+        <h2 className="text-2xl font-bold text-center mb-8">
             Search Destinations
           </h2>
-        <section className="container mx-auto my-8">
           <form onSubmit={handleSearch} className="w-full max-w-md mx-auto">
             <input
               type="text"

@@ -26,8 +26,8 @@ const BlogDetail: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
-        <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">
+      <main className="flex-grow p-4">
+        <div className="bg-gradient-to-r from-blue-500 to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">{blogPost.title}</h2>
         </div>
         <section className="container mx-auto my-8">

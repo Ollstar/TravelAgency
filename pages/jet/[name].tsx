@@ -26,7 +26,7 @@ const JetDetail: React.FC = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow p-4">
         <div className="bg-gradient-to-r from-blue to-indigo-600 py-16">
           <h2 className="text-4xl font-bold text-white text-center">{jet.name}</h2>
         </div>
