@@ -9,7 +9,6 @@ const HeadMetadata: React.FC = () => {
         name="description"
         content="Discover luxurious private jet travel experiences and custom vacations tailored to your preferences. Explore our exclusive destinations and start planning your dream journey."
       />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta name="robots" content="index, follow" />
       <meta property="og:title" content="Exclusive Private Jet Travel & Custom Vacations" />
       <meta
