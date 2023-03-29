@@ -1,8 +1,13 @@
+// src/pages/about.tsx
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Employee } from "@/types/Employee";
 import EmployeeCard from "@/components/EmployeeCard";
+import Timeline from "@/components/Timeline";
+import Testimonials from "@/components/Testimonials";
+import SpecializedServices from "@/components/SpecializedServices";
+import CTASection from "@/components/CTAsection";
 
 const About: React.FC = () => {
   const [employees, setEmployees] = useState<Employee[]>([]);
@@ -22,12 +27,15 @@ const About: React.FC = () => {
       <Header />
       <main className="flex-grow p-4">
         <section className="container mx-auto my-8">
-          <h2 className="text-2xl font-bold text-center mb-8">
-            About Our Travel Agency
-          </h2>
+          <h1 className="text-4xl font-bold text-center mb-8">
+            70 Years of Crafting Unforgettable Travel Experiences
+          </h1>
           <p>
             Insert your travel agency story here
           </p>
+        </section>
+        <section className="container mx-auto my-8">
+          <Timeline />
         </section>
         <section className="container mx-auto my-8">
           <h2 className="text-2xl font-bold text-center mb-8">
@@ -39,11 +47,19 @@ const About: React.FC = () => {
             ))}
           </div>
         </section>
+        <section className="container mx-auto my-8">
+          <Testimonials />
+        </section>
+        <section className="container mx-auto my-8">
+          <SpecializedServices />
+        </section>
+        <section className="container mx-auto my-8">
+          <CTASection />
+        </section>
       </main>
-        <Footer />
+      <Footer />
     </div>
-    );
+  );
 };
 
 export default About;
-     

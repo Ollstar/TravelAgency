@@ -18,6 +18,7 @@ import {
 import Carousel from "@/components/Carousel";
 import { CarouselItem } from "@/types/CarouselItem";
 import Hero from "@/components/Hero";
+import CTASection from "@/components/CTAsection";
 
 const Index: React.FC = () => {
   const [featuredDestinations, setFeaturedDestinations] = useState<
@@ -138,7 +139,7 @@ const Index: React.FC = () => {
         </motion.div>
         {/* Replace the static background with the Carousel component */}
         {/* <Carousel carouselItems={carouselItems} /> */}
-
+        <CTASection />
         {/* Testimonials section */}
         <section className="bg-gray-100 py-16">
           <div className="container mx-auto px-4">
